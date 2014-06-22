@@ -15,7 +15,7 @@
 FROM ubuntu:latest
 MAINTAINER margus@wave.ee
 ENTRYPOINT ["/bin/bash", "-c"]
-WORKDIR /opt
+WORKDIR /root
 
 USER root
 
@@ -41,7 +41,6 @@ USER root
 # JAVA 
 # RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u513/jdk-8u5-linux-x64.tar.gz
 ADD jdk-8u5-linux-x64.tar.gz /opt/
-RUN ls -la
 RUN export JAVA_HOME=/opt/jdk1.8.0_05 >> /root/.bashrc
 
 # GRAILS
