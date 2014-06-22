@@ -14,7 +14,7 @@
 
 FROM ubuntu:latest
 MAINTAINER margus@wave.ee
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/bin/bash", "-c"]
 WORKDIR /opt
 
 USER root
