@@ -1,6 +1,7 @@
+# boot2docker init
 # boot2docker start
 #
-# export DOCKER_HOST=tcp://192.168.59.103:2375
+# export DOCKER_HOST=tcp://192.168.59.104:2375
 # alias docker="sudo docker -H $DOCKER_HOST"
 # docker build -t devbox .
 #
@@ -21,7 +22,7 @@ USER root
 
 # BASE
 RUN apt-get update
-RUN apt-get install -y wget unzip curl 
+RUN apt-get install -y wget unzip curl openssh-client openssh-server nfs-common
 
 # POSTGRE
 RUN apt-get update
