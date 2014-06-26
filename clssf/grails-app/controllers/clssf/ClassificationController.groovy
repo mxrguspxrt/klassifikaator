@@ -9,4 +9,8 @@ class ClassificationController extends RestfulController {
         super(Association)
     }
 
+    def test() {
+        render "test yo";
+    }
+
 }
