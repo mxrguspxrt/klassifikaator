@@ -9,7 +9,14 @@ Ext.define('Client.model.Base', {
         namespace: 'Client.model',
         proxy: {
             type: 'rest',
-            url : '/clssf/{entityName:uncapitalize}'
+            url: '/clssf/{entityName:uncapitalize}',
+            reader: {
+                type: 'json',
+                rootProperty: 'data'
+            },
+            writer: {
+                type: 'json'
+            }
         }
     }
 

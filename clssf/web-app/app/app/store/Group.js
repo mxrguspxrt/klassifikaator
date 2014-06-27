@@ -1,5 +1,5 @@
 Ext.define('Client.store.Group', {
-    extend: 'Ext.data.Store',
+    extend: 'Client.store.Base',
 
     requires: [
         'Client.model.Group'
@@ -7,23 +7,6 @@ Ext.define('Client.store.Group', {
     
     storeId: 'Group',
     
-    autoLoad: true,
-
-    autoSync: true,
-
-    model: 'Client.model.Group',
-
-    proxy: {
-        type: 'rest',
-        url: '/clssf/group',
-        reader: {
-            type: 'json',
-            rootProperty: 'data'
-        },
-        writer: {
-            type: 'json'
-        }
-    }
-
+    model: 'Client.model.Group'
 
 });
