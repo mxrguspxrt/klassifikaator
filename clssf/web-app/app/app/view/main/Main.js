@@ -8,8 +8,13 @@ Ext.define('Client.view.main.Main', {
     
     items : [
         { 
-            xtype : 'groups-list' ,
-            flex  : 2
+            xtype : 'groups-list',
+            flex  : 1
+        },
+        { 
+            xtype : 'groups-new',
+            flex  : 1
         }
+
     ]
 });

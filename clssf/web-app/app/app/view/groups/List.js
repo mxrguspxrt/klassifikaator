@@ -1,5 +1,4 @@
-
-Ext.define("Client.view.groups.List",{
+Ext.define("Client.view.groups.List", {
     extend: 'Ext.grid.Panel',
 
     xtype: "groups-list",

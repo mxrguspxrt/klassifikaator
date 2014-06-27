@@ -25,6 +25,6 @@ Ext.define('Client.Application', {
     launch: function () {
     },
     
-    autoCreateViewport: 'Client.view.groups.List'
+    autoCreateViewport: 'Client.view.main.Main'
 
 });
