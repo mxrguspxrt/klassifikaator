@@ -6,9 +6,7 @@
 Ext.application({
     name: 'Client',
 
-    extend: 'Client.Application',
-    
-    autoCreateViewport: 'Client.view.groups.List'
+    extend: 'Client.Application'
 	
     //-------------------------------------------------------------------------
     // Most customizations should be made to Client.Application. If you need to

@@ -13,12 +13,18 @@ Ext.define('Client.Application', {
         "Classification"
     ],
 
+    stores: [
+        "Group"
+    ],
+
     controllers: [
         "Groups",
         "Classifications"
     ],
     
     launch: function () {
-        
-    }
+    },
+    
+    autoCreateViewport: 'Client.view.groups.List'
+
 });

@@ -1,5 +1,5 @@
 Ext.define('Client.model.Group', {
-    extend: 'Client.model.Base',
+    extend: 'Ext.data.Model',
 
     fields: [
         { name: 'name', type: 'auto' },

@@ -1,12 +1,15 @@
 
 Ext.define("Client.view.groups.List",{
+    extend: 'Ext.grid.Panel',
+
+    xtype: "groups-list",
 
     requires: [
       "Client.view.groups.ListController",
       "Client.view.groups.ListModel"
     ],
 
-    extend: "Ext.panel.Panel",
+    title: "Groups",
   
     controller: "groups-list",
   
@@ -14,6 +17,11 @@ Ext.define("Client.view.groups.List",{
         type: "groups-list"
     },
   
-    html: "Hello, World!!"
+    columns: [
+        { text: 'Name', dataIndex: 'name' },
+        { text: 'Description', dataIndex: 'description' }
+    ],
 
+    store: "Group"
+    
 });
