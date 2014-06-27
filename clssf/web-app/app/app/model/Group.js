@@ -1,21 +1,9 @@
 Ext.define('Client.model.Group', {
-    extend: 'Ext.data.Model',
+    extend: 'Client.model.Base',
 
-    associations: [{
-        model: 'Classification',
-        type: 'hasMany',
-        autoLoad: false
-    }],
-    
     fields: [
-        { name: 'id', type: 'int' },
         { name: 'name', type: 'auto' },
         { name: 'description', type: 'auto' }
-    ],
-
-    proxy: {
-        type: 'rest',
-        url : '/group'
-    }
+    ]
 
 });

@@ -8,20 +8,17 @@ Ext.define('Client.Application', {
     
     name: 'Client',
 
-    views: [
-        'Group'
+    models: [
+        "Group",
+        "Classification"
     ],
 
     controllers: [
-        'Group',
-        'Classification'
-    ],
-
-    stores: [
-        // TODO: add stores here
+        "Groups",
+        "Classifications"
     ],
     
     launch: function () {
-        // TODO - Launch the application
+        
     }
 });
