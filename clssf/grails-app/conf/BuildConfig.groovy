@@ -84,5 +84,6 @@ grails.project.dependency.resolution = {
         
         compile ":functional-spock:0.7"
         compile ":rest-client-builder:2.0.3"
+        compile ":httplogger:1.1"
     }
 }

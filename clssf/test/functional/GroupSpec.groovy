@@ -6,16 +6,21 @@ import grails.plugins.rest.client.RestBuilder
 
 class GroupSpec extends Specification {
 
-    def "create group succesfully"() {
+    def client = new RestBuilder()
+
+    def "create group successfully"() {
         setup:
-            def client = new RestBuilder()
+            def request_body = new File("test/fixtures/group_create_successful_request.json").text
+            def response_body = new File("test/fixtures/group_create_successful_response.json").text
         
         when:
-            def resp = client.get("http://www.neti.ee")
+            def resp = client.post("http://localhost:8080/clssf/group") {
+                json request_body
+            }
         
         then:
             resp.status == 200
-            resp.body == "yo"
+            resp.body == response_body
     }
 
 }
