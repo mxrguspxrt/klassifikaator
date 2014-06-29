@@ -7,18 +7,18 @@ import  grails.rest.*
 class GroupController extends RestfulController {
     // static allowedMethods = [save: "POST", update: "PUT", patch: "PATCH", delete: "DELETE"]
 
-    def GroupController(){
+    def GroupController() {
         super(Group)
     }
 
     // def index(){
     // }
 
-    // def save(){
-    //     def group = new Group(group_params)
-    //     group.save(flush: true) 
-    //     respond_with(group)
-    // }
+    def save() {
+        def group = new Group(group_params)
+        group.save(flush: true) 
+        respond_with(group)
+    }
 
     // def show(){
     // }
@@ -29,24 +29,24 @@ class GroupController extends RestfulController {
     // def delete(){
     // }
 
-    // def respond_with(group){
-    //     def status = request.method=="POST" ? 201 : 200
-    //     if(group.hasErrors()){
-    //         status = 422
-    //     }
-    //     respond group_response(group), [status: status, formats: "json"]
-    // }
+    def respond_with(group) {
+        def status = request.method=="POST" ? 201 : 200
+        if (group.hasErrors()) {
+            status = 422
+        }
+        respond group_response(group), [status: status, formats: "json"]
+    }
 
-    // def group_params(){
-    //     [name: params.name, description: params.description]
-    // }
+    def group_params() {
+        [name: params.name, description: params.description]
+    }
 
-    // def group_response(group){
-    //     if(group.hasErrors()){
-    //         return [errors: group.errors]
-    //     }else{
-    //         return [id: group.id, name: group.name, description: group.description]
-    //     }
-    // }
+    def group_response(group) {
+        if(group.hasErrors()) {
+            return [errors: group.errors]
+        } else {
+            return [id: group.id, name: group.name, description: group.description]
+        }
+    }
 
 }
