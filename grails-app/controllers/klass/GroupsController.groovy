@@ -10,8 +10,12 @@ class GroupsController extends RestfulController {
         super(Group)
     }   
 
+    def list() {
+        render('[{"id":1,"name":"Name #1","description":"Description #1"}]')
+    }
+
     def create() {
-        render '{"id":1,"name":"Name #1","description":"Description #1"}'
+        render(text: '{"id":1,"name":"Name #1","description":"Description #1"}', status: 201)
     }
 
 }
