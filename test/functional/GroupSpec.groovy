@@ -1,12 +1,4 @@
-import spock.lang.Shared
-import spock.lang.Specification
-
-import grails.plugins.rest.client.RestBuilder
-
-
-class GroupSpec extends Specification {
-
-    def client = new RestBuilder()
+class GroupSpec extends BaseRestSpec {
 
     def "group is created when parameters are valid"() {
         setup:
@@ -14,7 +6,7 @@ class GroupSpec extends Specification {
             def response_body = new File("test/fixtures/group_create_successful_response.json").text
         
         when:
-            def resp = client.post("http://localhost:8080/klass/groups") {
+            def resp = post("/klass/groups") {
                 json request_body
             }
         
@@ -29,7 +21,7 @@ class GroupSpec extends Specification {
             response_body = "["+response_body+"]"
 
         when:
-            def resp = client.get("http://localhost:8080/klass/groups")
+            def resp = get("/klass/groups")
 
         then:
             resp.status == 200
