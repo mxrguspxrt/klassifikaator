@@ -2,14 +2,14 @@ class UrlMappings {
 
 	static mappings = {
 
-        "/$controller" (controller: "groups") {
+        "/$controller" {
             action = [
               GET: "list",
               POST: "create"
             ]
         }
 
-        "/$controller/$id" (controller: "groups") {
+        "/$controller/$id" {
             action = [
                 GET: "show",
                 PUT: "update",
