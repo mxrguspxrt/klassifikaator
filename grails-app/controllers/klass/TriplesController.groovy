@@ -22,7 +22,7 @@ class TriplesController {
     def update() {
         def triple = Triple.findById(params["id"])
         triple.properties = triple_params()
-        triple.save()
+        triple.save(flush: true)
         respond_with(model: triple, status: 200)
     }
 
@@ -33,8 +33,7 @@ class TriplesController {
 
     def delete() {
         def triple = Triple.findById(params["id"])
-        triple.properties = triple_params()
-        triple.save()
+        triple.delete()
         respond_with(status: 204)   
     }
 
