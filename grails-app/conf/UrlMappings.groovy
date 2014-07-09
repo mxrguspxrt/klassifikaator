@@ -4,7 +4,7 @@ class UrlMappings {
 
         "/$controller" {
             action = [
-              GET: "list",
+              GET: "index",
               POST: "create"
             ]
         }

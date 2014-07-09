@@ -8,8 +8,8 @@ class Triple {
 
     static constraints = {
         subject blank: false, nullable: false, size: 1..10
-        predicate blank: false
-        object blank: false
+        predicate blank: false, nullable: false, size: 1..10
+        object blank: false, nullable: false, size: 1..10
         subjectTranslation nullable: true
         predicateTranslation nullable: true
         objectTranslation nullable: true
@@ -34,7 +34,7 @@ class Triple {
     }
 
     def getSubject() {
-        //if(this.subjectTranslation) this.subjectTranslation.toString()
+        if(this.subjectTranslation) this.subjectTranslation.toString()
     }
 
     def setPredicate(String txt) {

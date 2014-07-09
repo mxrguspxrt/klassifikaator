@@ -1,43 +1,39 @@
 require 'json'
 require 'net/http'
 
+URL = "http://localhost:8080/klass"
+METHODS = {post: Net::HTTP::Post, get: Net::HTTP::Get, put: Net::HTTP::Put, delete: Net::HTTP::Delete}
 
-uri = URI("http://localhost:8080/klass/triples")
+def request(method, path, params=nil)
+  uri = URI(URL+path)
+  req = METHODS[method].new(uri)
+  puts "\n\n#{req.method} #{req.path}"
+  
+  req.body = params.to_json  if params
+  req['Content-Type'] = 'application/json'
 
-
-puts "CREATE TRIPLE"
-
-req = Net::HTTP::Post.new(uri)
-req.body = {
-  triple: {
-    subject: "subject",
-    predicate: "predicate",
-    object: "object"
+  res = Net::HTTP.start(uri.hostname, uri.port) {|http|
+    http.request(req)
   }
-}.to_json
-req['Content-Type'] = 'application/json'
-
-res = Net::HTTP.start(uri.hostname, uri.port) {|http|
-  http.request(req)
-}
-
-puts res.body
+  puts res.code
+  puts res.body
+  res
+end
 
 
+res = request(:post, "/triples", triple: {subject: "subject", predicate: "predicate", object: "object"})
 
-puts "CREATE TRIPLE FAILING"
+last_id = JSON.parse(res.body)["triple"]["id"]
+res = request(:put, "/triples/#{last_id}", triple: {object: "object2"})
 
-req = Net::HTTP::Post.new(uri)
-req.body = {
-  triple: {
-    predicate: "predicate",
-    object: "object"
-  }
-}.to_json
-req['Content-Type'] = 'application/json'
+last_id = JSON.parse(res.body)["triple"]["id"]
+res = request(:get, "/triples/#{last_id}")
 
-res = Net::HTTP.start(uri.hostname, uri.port) {|http|
-  http.request(req)
-}
+last_id = JSON.parse(res.body)["triple"]["id"]
+res = request(:delete, "/triples/#{last_id}")
 
-puts res.body
+res = request(:post, "/triples#failing", triple: {subject: "subject", predicate: "predicate"})
+
+res = request(:get, "/triples")
+
+
