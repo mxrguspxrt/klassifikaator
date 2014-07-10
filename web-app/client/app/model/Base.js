@@ -5,7 +5,7 @@ Ext.define('Client.model.Base', {
         namespace: 'Client.model',
         proxy: {
             type: 'rest',
-            url: '/clssf/{entityName:uncapitalize}',
+            url: '/klass/{entityName:uncapitalize}s',
             reader: {
                 type: 'json',
                 rootProperty: 'data'
