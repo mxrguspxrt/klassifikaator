@@ -10,6 +10,10 @@ Ext.define('Client.view.main.Main', {
         { 
             xtype : 'triples-list',
             flex  : 1
+        },
+        { 
+            xtype : 'triples-new',
+            flex  : 1
         }
 
     ]

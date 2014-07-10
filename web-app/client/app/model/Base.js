@@ -5,13 +5,14 @@ Ext.define('Client.model.Base', {
         namespace: 'Client.model',
         proxy: {
             type: 'rest',
-            url: '/klass/{entityName:uncapitalize}s',
+            url: '/klass/triples',       // url: '/klass/{entityName:uncapitalize}',
             reader: {
                 type: 'json',
-                rootProperty: 'data'
+                rootProperty: "triples"
             },
             writer: {
-                type: 'json'
+                type: 'json',
+                rootProperty: "triple"
             }
         }
     }

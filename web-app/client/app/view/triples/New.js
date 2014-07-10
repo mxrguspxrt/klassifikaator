@@ -1,31 +1,36 @@
-Ext.define("Client.view.groups.New", {
+Ext.define("Client.view.triples.New", {
     extend: 'Ext.panel.Panel',
 
-    xtype: "groups-new",
+    xtype: "triples-new",
 
     requires: [
-      "Client.view.groups.NewController",
-      "Client.view.groups.NewModel"
+      "Client.view.triples.NewController",
+      "Client.view.triples.NewModel"
     ],
 
-    title: "New Group",
+    title: "New Triple",
   
-    controller: "groups-new",
+    controller: "triples-new",
   
     viewModel: {
-        type: "groups-new"
+        type: "triples-new"
     },
 
     items : [
         {
             xtype      : 'textfield',
-            bind       : '{rec.name}',
-            fieldLabel : 'Name'
+            bind       : '{rec.subject}',
+            fieldLabel : 'Subject'
         },
         {
             xtype      : 'textfield',
-            bind       : '{rec.description}',
-            fieldLabel : 'Description'
+            bind       : '{rec.predicate}',
+            fieldLabel : 'Predicate'
+        },
+        {
+            xtype      : 'textfield',
+            bind       : '{rec.object}',
+            fieldLabel : 'Object'
         },
         {
             xtype  : 'button',

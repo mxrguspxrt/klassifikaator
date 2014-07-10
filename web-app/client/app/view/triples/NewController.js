@@ -1,6 +1,6 @@
-Ext.define('Client.view.groups.NewController', {
+Ext.define('Client.view.triples.NewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.groups-new',
+    alias: 'controller.triples-new',
 
     createRecord: function(){
         rec = this.getView().getViewModel().getData().rec;

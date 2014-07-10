@@ -1,10 +1,10 @@
-Ext.define('Client.view.groups.NewModel', {
+Ext.define('Client.view.triples.NewModel', {
     extend: 'Ext.app.ViewModel',
 
-    alias: 'viewmodel.groups-new',
+    alias: 'viewmodel.triples-new',
 
     data: {
-        rec: Ext.create("Client.model.Group")
+        rec: Ext.create("Client.model.Triple")
     }
 
 });

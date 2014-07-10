@@ -9,7 +9,8 @@ Ext.define('Client.Application', {
     name: 'Client',
 
     models: [
-        "Triple"
+        "Triple",
+        "Classification"
     ],
 
     stores: [
@@ -17,7 +18,8 @@ Ext.define('Client.Application', {
     ],
 
     controllers: [
-        "Triples"
+        "Triples",
+        "Classifications"
     ],
     
     launch: function () {
